@@ -6,6 +6,15 @@ public class Episodio implements Classificavel {
     private int numero;
     private String nome;
     private Serie serie;
+    private int totalVisiualizacoes;
+
+    public int getTotalVisiualizacoes() {
+        return totalVisiualizacoes;
+    }
+
+    public void setTotalVisiualizacoes(int totalVisiualizacoes) {
+        this.totalVisiualizacoes = totalVisiualizacoes;
+    }
 
     public int getNumero() {
         return numero;
@@ -33,6 +42,10 @@ public class Episodio implements Classificavel {
 
     @Override
     public int getClassificacao() {
-        return 0;
+        if (totalVisiualizacoes > 100) {
+            return 4;
+        } else {
+            return 2;
+        }
     }
 }
